@@ -265,6 +265,8 @@ class NativeDownloader(Downloader):
         self.session = session
 
     def _start_download(self, url, filename):
+        """Replace special chars"""
+        filename = filename.replace('?','').replace('"','')
         logging.info('Downloading %s -> %s', url, filename)
 
         attempts_count = 0
